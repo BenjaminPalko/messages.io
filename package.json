@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "postinstall": "npm run build",
-    "start": "node server.js",
+    "start": "npm install -g serve && serve -s dist",
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
