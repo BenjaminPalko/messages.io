@@ -13,7 +13,7 @@ export default defineComponent({
     return {
       message: '',
       messages: [] as ChatMessage[],
-      socket: io("ws://localhost:3000")
+      socket: io(import.meta.env.VITE_SOCKET_SERVER)
     }
   },
   methods: {
@@ -25,6 +25,7 @@ export default defineComponent({
     }
   },
   mounted() {
+    console.log(import.meta.env.VITE_SOCKET_SERVER);
     this.socket.on('connect', () => {
       console.log(`Socket open`);
       this.socket.on("subscribe message", args => this.messages.push(args))
